@@ -1,0 +1,58 @@
+<div class="navbar">
+</div>
+
+<div class="flat-image-cover" style="background-image: url(<%= @flat.pictureUrl %>)">
+</div>
+
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-8">
+
+      <div class="flat-show-card">
+        <h1><%= @flat.name %></h1>
+        <p class="flat-show-address"><%= @flat.address %></p>
+      </div>
+
+      <div class="flat-show-card">
+        <h4>A bit more about this flat...</h4>
+        <p><%= @flat.description %></p>
+      </div>
+    </div>
+
+
+    <div class="col-4">
+      <div class="flat-show-card">
+        <h5>Book this place!</h5>
+      </div>
+
+      <div class="flat-show-card">
+          <h3>Details</h3>
+          <div class="flex">
+            <div class="flex">
+              <%= @flat.number_of_guests %>
+            </div>
+            <div class="flex">
+              <%= @flat.number_of_guests %>
+            </div>
+          </div>
+      </div>
+
+      <div class="flat-show-card">
+        <div class="flex-align">
+          <h6 class="no-mb">Share</h6>
+          <div class="flex">
+            <i class="fa fa-facebook-square fa-2x mr-2"></i>
+            <i class="fa fa-twitter-square fa-2x mr-2"></i>
+            <i class="fa fa-pinterest-square fa-2x mr-2"></i>
+            <i class="fa fa-envelope-square fa-2x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<%= link_to "Back to all flats", flats_path %>

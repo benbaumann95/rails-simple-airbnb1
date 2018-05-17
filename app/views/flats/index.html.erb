@@ -1,0 +1,43 @@
+<%= link_to "Add a flat", new_flat_path %>
+
+<div class="container">
+  <div class="row">
+    <h1 class='margin-left-20'>All our flats (<%= @flats.count %>)</h1>
+    <% @flats.reverse_each do |flat|  %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+
+        <div class="flat-card">
+            <%= link_to flat_path(flat.id) do %>
+              <%= image_tag flat.pictureUrl, class: "flat-image", crop: :fill %>
+            <% end %>
+
+          <div class="flat-card-content">
+            <div class="flat-card-name">
+              <h5><%= flat.name %></h5>
+            </div>
+            <div class="flat-card-address">
+              <p><%= flat.address %></p>
+            </div>
+            <div class="flex flat-card-details">
+              <p><i class="fas fa-users darkslategray"></i> <%= flat.number_of_guests %></p>
+              <p class='margin-left-20'><strong>£</strong> <%= flat.price_per_night %></p>
+            </div>
+          </div>
+
+          <div class="flex flat-card-actions ">
+            <p><%= link_to "More info", flat_path(flat.id) %></p>
+            <p class='margin-left-20'><%= link_to "Edit", edit_flat_path(flat.id) %></p>
+            <p class="margin-left-20">
+              <%= link_to flat_path(flat.id), method: :delete, data:
+              { confirm: "Delete #{flat.name}?" } do %>
+                <i class="fas fa-trash" aria-hidden="true"></i>
+              <% end %>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    <% end %>
+  </div>
+</div>
