@@ -5,9 +5,11 @@
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
       <div class="flat-card">
+        <div class="flat-card-image-container">
         <%= link_to flat_path(flat.id) do %>
         <%= image_tag flat.pictureUrl, class: "flat-image", crop: :fill %>
         <% end %>
+        </div>
 
         <div class="flat-card-content">
           <div class="flat-card-name">

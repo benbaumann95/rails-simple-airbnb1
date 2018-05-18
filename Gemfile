@@ -5,7 +5,8 @@ ruby '2.4.3'
 
 gem 'simple_form'
 gem "geocoder"
-gem 'figaro'
+gem "figaro"
+gem 'webpacker', '~> 3.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
