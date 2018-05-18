@@ -1,0 +1,36 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= f.error_notification %>
+
+<div class="container">
+  <div class="sign-up-container">
+    <div class="sign-up-text-container">
+      <h2 class='sign-up-text'>Sign up</h2>
+    </div>
+    <div class="form-inputs">
+      <%= f.input :email, placeholder: 'hello@example.com', required: true, autofocus: true %>
+      <%= f.input :first_name, placeholder: 'Ben ', required: true %>
+      <%= f.input :last_name, placeholder: 'Baumann', required: true %>
+      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+      <%= f.input :password_confirmation, required: true, class: 'password_confirmation-color' %>
+    </div>
+
+
+    <div class="form-row">
+      <div class="form-50">
+        <div class="form-actions" style="margin-left: 15px;">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+        <% end %>
+      </div>
+
+      <div class="form-50-log-in">
+        <div class="log-in-button-sign-up">
+        <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
