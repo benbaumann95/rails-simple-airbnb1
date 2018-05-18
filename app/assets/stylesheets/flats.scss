@@ -3,10 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .flex {
   display: flex
-
 }
 .margin-left-20{
-  margin-left: 20px
+  margin-left: 20px;
+}
+.margin-top-50{
+  margin-top: 50px;
 }
 .inline-block{
   display: inline-block;
@@ -20,6 +22,23 @@
 }
 .margin-auto{
   margin: auto !important
+}
+.margin-left-auto{
+  margin-left: auto !important
+}
+.green{
+  color: #54BB94 !important;
+  a {
+    color: #54BB94;
+  }
+}
+.lightslategrey{
+  color: lightslategrey;
+}
+.hover-opacity{
+  &:hover{
+    opacity: 0.7;
+  }
 }
 
 // Flat Card:
@@ -37,12 +56,22 @@
   background-position: center;
   border-radius: 2px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  &:hover{
+    box-shadow: 20px 30px 80px 0 rgba(0, 0, 0, 0.1);
+    transition: all .15s ease-in-out;
+    -ms-transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
+  }
 }
 .flat-image {
   max-width: 100%;
   max-height: 100%;
   background-position: center;
   background-size: cover;
+  &:hover{
+    opacity: 0.9;
+  }
 }
 .flat-card-content{
   padding: 15px;
@@ -71,6 +100,67 @@
   padding: 24px;
   border-radius: 3px;
 }
+
+.back-btn{
+  border-radius: 6px;
+  background-color: #54BB94;
+  color: #FFF;
+  text-transform: uppercase;
+  width: 200px;
+  margin: 0 0 0 auto;
+  line-height: 60px;
+  font-size: 14px;
+  text-align: center;
+}
+
+// Navbar:
+.navbar-brand{
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.navbar-wagon {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background: white;
+  transition: all 0.3s ease;
+  height: 70px;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: auto !important
+}
+
+/* Right section */
+.navbar-wagon-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Basic navbar item */
+.navbar-wagon-item {
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+/* Navbar link */
+.navbar-wagon-link {
+  color: #616668;
+  font-size: 14px;
+}
+.navbar-wagon-link:hover {
+  color: #da552f;
+  text-decoration: none;
+}
+
+
 
 
 // Colors:

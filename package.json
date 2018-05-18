@@ -1,5 +1,7 @@
 {
   "name": "rails-simple-airbnb1",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "gmaps": "^0.4.24"
+  }
 }

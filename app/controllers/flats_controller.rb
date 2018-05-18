@@ -2,10 +2,27 @@ class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
 
   def index
-    @flats = Flat.all
+    @flats = Flat.search(params[:term])
+  end
+
+  def navbar
+    @flats = if params[:term]
+      Flat.where('name LIKE ?', "%#{params[:term]}%")
+    else
+      Flat.all
+    end
   end
 
   def show
+    @flats = Flat.where.not(latitude: nil, longitude: nil)
+
+    @markers = @flats.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
   def new
@@ -44,7 +61,7 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests, :amenties, :pictureUrl)
+    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests, :amenties, :pictureUrl, :term)
   end
 end
 
