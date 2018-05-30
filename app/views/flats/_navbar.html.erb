@@ -2,11 +2,14 @@
   <!-- Logo -->
   <div class="navbar-wagon-brand">
     <%= link_to "AirBnB", root_path %>
-
+    <% if user_signed_in? %>
+      <% avatar_url = current_user.facebook_picture_url%>
+      <%= image_tag avatar_url, class: "avatar" %>
+    <% end %>
   </div>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-wagon-right">
     <div class="navbar-wagon-item navbar-wagon-link">
 
       <%= form_tag(flats_path, method: :get) do %>
@@ -18,8 +21,18 @@
     <div class="navbar-wagon-item navbar-wagon-link">
       <%= link_to "Add a flat", new_flat_path, class: 'btn btn-warning'%>
     </div>
-    <div class="navbar-wagon-item navbar-wagon-link">
-      <%= link_to "Log in", new_user_registration_path, class: 'btn btn-primary'%>
-    </div>
+
+    <% if !user_signed_in? %>
+      <div class="navbar-wagon-item navbar-wagon-link">
+        <%= link_to "Log in", new_user_registration_path, class: 'btn btn-primary'%>
+      </div>
+    <% else %>
+      <div class="navbar-wagon-item navbar-wagon-link">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= t(".sign_out", default: "Log out") %>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 </div>

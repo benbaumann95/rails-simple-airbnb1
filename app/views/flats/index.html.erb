@@ -2,12 +2,13 @@
   <div class="row">
     <h1 class='margin-left-20 darkslategray'>All our flats (<%= @flats.count %>)</h1>
     <% @flats.reverse_each do |flat|  %>
+
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
       <div class="flat-card">
         <div class="flat-card-image-container">
         <%= link_to flat_path(flat.id) do %>
-        <%= image_tag flat.pictureUrl, class: "flat-image", crop: :fill %>
+        <%= image_tag flat.pictureUrl , class: "flat-image", crop: :fill %>
         <% end %>
         </div>
 
@@ -27,12 +28,15 @@
         <div class="flex flat-card-actions ">
           <p><%= link_to "More info", flat_path(flat.id) %></p>
           <p class='margin-left-20 green'><%= link_to "Edit", edit_flat_path(flat.id) %></p>
-          <p class="margin-left-20">
-            <%= link_to flat_path(flat.id), method: :delete, data:
-            { confirm: "Delete #{flat.name}?" } do %>
-            <i class="fas fa-trash lightslategrey hover-opacity" aria-hidden="true"></i>
-            <% end %>
-          </p>
+
+          <% if flat.user_id == current_user.id %>
+            <p class="margin-left-20">
+              <%= link_to flat_path(flat.id), method: :delete, data:
+              { confirm: "Delete #{flat.name}?" } do %>
+                <i class="fas fa-trash lightslategrey hover-opacity" aria-hidden"true"></i>
+              <% end %>
+            </p>
+          <% end %>
         </div>
       </div>
 

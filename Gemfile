@@ -3,6 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass', '~> 3.3'
+gem 'font-awesome-sass', '~> 4.7'
+
+gem 'simple_form'
+
+gem 'flatpickr_rails'
+gem 'jquery-rails'
+
 gem 'simple_form'
 gem "geocoder"
 gem "figaro"

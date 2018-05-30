@@ -173,6 +173,10 @@
     width: 100%;
     top: 0px;
   }
+.avatar{
+  border-radius: 50%;
+  margin-left: 10px;
+}
 
 // Sign up
 
@@ -223,7 +227,7 @@ body{
   margin: auto;
 }
 .form-group{
-  margin: 15px !important;
+  // margin: 15px !important;
 }
 .form-control{
   border-radius: 5px !important;
