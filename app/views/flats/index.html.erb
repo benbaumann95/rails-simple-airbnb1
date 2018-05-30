@@ -29,12 +29,14 @@
           <p><%= link_to "More info", flat_path(flat.id) %></p>
           <p class='margin-left-20 green'><%= link_to "Edit", edit_flat_path(flat.id) %></p>
 
-          <% if flat.user_id == current_user.id %>
-            <p class="margin-left-20">
-              <%= link_to flat_path(flat.id), method: :delete, data:
-              { confirm: "Delete #{flat.name}?" } do %>
-                <i class="fas fa-trash lightslategrey hover-opacity" aria-hidden"true"></i>
-              <% end %>
+          <% if current_user %>
+            <% if flat.user_id == current_user.id %>
+              <p class="margin-left-20">
+                <%= link_to flat_path(flat.id), method: :delete, data:
+                { confirm: "Delete #{flat.name}?" } do %>
+                  <i class="fas fa-trash lightslategrey hover-opacity" aria-hidden"true"></i>
+                <% end %>
+            <% end %>
             </p>
           <% end %>
         </div>

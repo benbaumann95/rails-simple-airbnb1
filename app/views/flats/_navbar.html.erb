@@ -3,8 +3,10 @@
   <div class="navbar-wagon-brand">
     <%= link_to "AirBnB", root_path %>
     <% if user_signed_in? %>
-      <% avatar_url = current_user.facebook_picture_url%>
-      <%= image_tag avatar_url, class: "avatar" %>
+      <% if current_user.facebook_picture_url? %>
+        <% avatar_url = current_user.facebook_picture_url%>
+        <%= image_tag avatar_url, class: "avatar" %>
+      <% end %>
     <% end %>
   </div>
 
